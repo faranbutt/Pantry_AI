@@ -1,0 +1,30 @@
+name: Frontend App
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+on: 
+    push: 
+        branches: 
+            - main
+jobs:
+    build-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Code
+              uses: actions/checkout@v4.1.0
+            - name: Install Vercel CLI
+              run: npm install --global vercel@latest
+            - name: Change directory to Frontend
+              run: cd frontend
+            - name: List
+              working-directory: ./frontend
+              run: ls
+            - name: Pull Vercel Enviornment Information
+              working-directory: ./frontend
+              run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+            - name: Build Project Artifacts
+              working-directory: ./frontend
+              run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+            - name: Deploy
+              working-directory: ./frontend
+              run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
