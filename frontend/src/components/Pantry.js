@@ -92,8 +92,8 @@ export default function Pantry() {
     await deleteDoc(docRef);
   };
 
-  const removeItem = async (item) => {
-    const docRef = doc(collection(firestore, "Fruits"), item);
+  const removeItem = async (item,typeofInvent) => {
+    const docRef = doc(collection(firestore, typeofInvent), item);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       const { quantity } = docSnap.data();
@@ -279,7 +279,7 @@ export default function Pantry() {
                         size="small"
                         color="secondary"
                         aria-label="add"
-                        onClick={() => removeItem(name)}
+                        onClick={() => removeItem(name,"Fruits")}
                       >
                         <RemoveIcon />
                       </Fab>
@@ -416,7 +416,7 @@ export default function Pantry() {
                           size="small"
                           color="secondary"
                           aria-label="add"
-                          onClick={() => removeItem(name)}
+                          onClick={() => removeItem(name,'Vegetables')}
                         >
                           <RemoveIcon />
                         </Fab>
