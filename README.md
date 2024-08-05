@@ -13,10 +13,7 @@ The Pantry Tracking AI App is a smart inventory management system designed to he
 - **User-Friendly Interface:** Enjoy a clean and intuitive design that makes inventory management a breeze.
 - **Mobile and Web Compatibility:** Access your inventory from any device, whether on desktop or mobile.
 
-## User Interface
-![Pantry Tracking App](frontend/public/ui.png)
-
-## Usage Video:
+## Usage Video (!Click on it divert to youtube):
 [![IMAGE ALT TEXT HERE](frontend/public/ui.png)](https://www.youtube.com/watch?v=No2uuonh90M&t=3s)
 ## Technology Stack
 
